@@ -1,0 +1,128 @@
+table attendance
+id — text
+branch_id — text
+employee_id — text
+staff_name — text
+date — text
+clock_in — timestamp with time zone
+clock_out — timestamp with time zone
+status — text
+late_deduction — numeric
+ot_pay — numeric
+cash_advance — numeric
+created_at — timestamp with time zone
+
+table attendance_logs
+id — text
+branch_id — text
+staff_name — text
+status — text
+amount — numeric
+cash_advance — numeric
+timestamp — timestamp with time zone
+
+table audit_logs
+id — bigint
+branch_id — text
+timestamp — timestamp with time zone
+activity_type — text
+entity_type — text
+entity_id — text
+description — text
+amount — numeric
+performer_name — text
+
+table branches
+id — text
+name — text
+pin — text
+is_pin_changed — boolean
+is_enabled — boolean
+is_open — boolean
+is_open_date — text
+manager — text
+services — jsonb
+weekly_cutoff — text
+cycle_start_date — text
+daily_provision_amount — numeric
+enable_shift_tracking — boolean
+opening_time — text
+closing_time — text
+created_at — timestamp with time zone
+
+table employees
+id — text
+branch_id — text
+name — text
+role — text
+allowance — numeric
+is_active — boolean
+profile — text
+timestamp — timestamp with time zone
+created_at — timestamp with time zone
+username — text
+login_pin — text
+webauthn_id — text
+
+table expenses
+id — text
+branch_id — text
+timestamp — timestamp with time zone
+name — text
+amount — numeric
+category — text
+receipt_image — text
+
+table sales_reports
+id — text
+branch_id — text
+report_date — text
+submitted_at — timestamp with time zone
+gross_sales — numeric
+total_staff_pay — numeric
+total_expenses — numeric
+total_vault_provision — numeric
+net_roi — numeric
+session_data — jsonb
+staff_breakdown — jsonb
+expense_data — jsonb
+vault_data — jsonb
+
+table service_catalogs
+id — text
+name — text
+services — jsonb
+branch_ids — jsonb
+created_at — timestamp with time zone
+updated_at — timestamp with time zone
+
+table shift_logs
+id — text
+branch_id — text
+employee_id — text
+employee_name — text
+clock_in — timestamp with time zone
+clock_out — timestamp with time zone
+date_str — text
+created_at — timestamp with time zone
+
+table system_config
+key — text
+value — text
+updated_at — timestamp with time zone
+
+table transactions
+id — text
+branch_id — text
+timestamp — timestamp with time zone
+client_name — text
+therapist_name — text
+bonesetter_name — text
+service_id — text
+service_name — text
+base_price — numeric
+discount — numeric
+voucher_value — numeric
+primary_commission — numeric
+secondary_commission — numeric
+total — numeric
