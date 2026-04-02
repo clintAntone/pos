@@ -29,12 +29,6 @@ jobs:
       - name: Build React app
         run: npm run build
 
-      - name: Add android
-        run: npx cap add android
-
-      - name: Sync Capacitor
-        run: npx cap sync android
-
       - name: Build APK
         run: |
           cd android
