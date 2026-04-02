@@ -3,3 +3,5 @@ const config = {
   appName: 'HilotCenter-POS',
   webDir: 'dist', // or 'build' if CRA
 };
+
+export default config;
